@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoffeeShop PhotoBooth</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=FunolDisplay:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="coffee-loader">
+            <div class="cup"></div>
+            <div class="steam"></div>
+            <div class="text">Brewing Your PhotoBooth...</div>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="app hidden">
+        <!-- Header -->
+        <header class="header">
+            <img id="logo" src="logo.png" alt="Logo" class="logo">
+            <h1 class="title">CoffeeShop</h1>
+            <h2 class="subtitle">PhotoBooth</h2>
+        </header>
+
+        <!-- Camera View -->
+        <div class="camera-container">
+            <video id="video" autoplay muted playsinline></video>
+            <canvas id="canvas" class="hidden"></canvas>
+            
+            <!-- Frame Overlay -->
+            <div class="frame-overlay">
+                <img src="frame.png" alt="Frame" class="frame-img">
+            </div>
+
+            <!-- Filters Overlay -->
+            <div id="filterOverlay" class="filter-overlay hidden"></div>
+
+            <!-- Timer Overlay -->
+            <div id="timerOverlay" class="timer-overlay hidden">
+                <div class="timer-circle">
+                    <span id="timerText">3</span>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="control-group">
+                    <button id="mirrorBtn" class="control-btn mirror-btn">🔄 Mirror</button>
+                    <select id="timerSelect" class="timer-select">
+                        <option value="3">3s</option>
+                        <option value="5">5s</option>
+                        <option value="10">10s</option>
+                    </select>
+                </div>
+                <button id="captureBtn" class="capture-btn">📸 TAKE PHOTO</button>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="none">Original</button>
+                    <button class="filter-btn" data-filter="coffee">☕ Coffee</button>
+                    <button class="filter-btn" data-filter="latte">🥛 Latte</button>
+                    <button class="filter-btn" data-filter="espresso">⚫ Espresso</button>
+                    <button class="filter-btn" data-filter="cappuccino">☕️ Cappuccino</button>
+                    <button class="filter-btn" data-filter="mocha">🍫 Mocha</button>
+                    <button class="filter-btn" data-filter="matcha">🟢 Matcha</button>
+                    <button class="filter-btn" data-filter="caramel">🍮 Caramel</button>
+                    <button class="filter-btn" data-filter="vintage">📜 Vintage</button>
+                    <button class="filter-btn" data-filter="bokeh">✨ Bokeh</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery -->
+        <div id="gallery" class="gallery hidden">
+            <h3>📸 Your Photos (2x3 Print)</h3>
+            <div id="photoGrid" class="photo-grid"></div>
+            <button id="newSessionBtn" class="new-session-btn">🔄 New Session</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
